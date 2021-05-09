@@ -1,0 +1,11 @@
+ <!-- Inheritance link between the two templates  -->
+ {% extends "base.html" %}
+
+ {% block content %}    
+     <h1>Welcome, {{ user.username }}!</h1>
+ 
+ <!-- Controls the amount of posts to be sent to this page -->
+     {% for post in posts %}
+     <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+     {% endfor %}  
+ {% endblock %} 

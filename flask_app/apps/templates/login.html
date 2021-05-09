@@ -1,0 +1,30 @@
+<!-- Inporting the navigation bar -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Sign In</h1>
+    <!-- The form will not be validated using 'novalidate' -->
+    <form action="" method="post" novalidate>
+
+        <!-- Generates hidden field with token to protect form against CSRF attacks -->
+        {{ form.hidden_tag() }}
+
+        <!-- python way of representing fields -->
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}
+            {% for error in form.username.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+            {% for error in form.password.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
